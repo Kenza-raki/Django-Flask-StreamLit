@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Scheduling Algorithms</title>
+</head>
+<body>
+    <h1>Task Scheduling Algorithms</h1>
+    <form method="POST">
+        <label for="tasks_input">Enter Tasks (e.g., (0, 3), (2, 5), (4, 2), (6, 4)):</label><br>
+        <textarea id="tasks_input" name="tasks_input" rows="4" cols="50">{{ tasks_input }}</textarea><br><br>
+
+        <label for="algorithm">Choose an Algorithm:</label><br>
+        <select name="algorithm" id="algorithm">
+            <option value="FCFS" {% if algorithm == 'FCFS' %}selected{% endif %}>FCFS</option>
+            <option value="SJF" {% if algorithm == 'SJF' %}selected{% endif %}>SJF</option>
+            <option value="LLF" {% if algorithm == 'LLF' %}selected{% endif %}>LLF</option>
+            <option value="RM" {% if algorithm == 'RM' %}selected{% endif %}>RM</option>
+            <option value="DM" {% if algorithm == 'DM' %}selected{% endif %}>DM</option>
+            <option value="EDF" {% if algorithm == 'EDF' %}selected{% endif %}>EDF</option>
+        </select><br><br>
+
+        <input type="submit" value="Run Algorithm">
+    </form>
+
+    {% if img_str %}
+        <h2>Scheduling Plot</h2>
+        <img src="data:image/png;base64,{{ img_str }}" alt="Scheduling Plot">
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
