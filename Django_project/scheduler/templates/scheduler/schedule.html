@@ -1,0 +1,21 @@
+<form method="POST">
+    {% csrf_token %}
+    <label for="algorithm">Select Algorithm:</label>
+    <select name="algorithm" id="algorithm">
+        <option value="FCFS">FCFS</option>
+        <option value="SJF">SJF</option>
+        <option value="RM">RM</option>
+        <option value="DM">DM</option>
+        <option value="EJB">EJB</option>
+        <option value="LLF">LLF</option>
+    </select>
+    
+    <label for="tasks_input">Enter Tasks (Arrival Time, Execution Time, [Period, Deadline]):</label>
+    <input type="text" name="tasks_input" id="tasks_input" required>
+    
+    <button type="submit">Submit</button>
+</form>
+
+{% if img_str %}
+    <img src="data:image/png;base64,{{ img_str }}" alt="Schedule Plot">
+{% endif %}
