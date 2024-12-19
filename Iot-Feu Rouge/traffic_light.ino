@@ -81,7 +81,7 @@ void loop() {
 // Fonction pour afficher la page web principale
 void handleRoot() {
  String page = "<html><head>";
-  page += "<title>Contrôle des Feux</title>";
+  page += "<title>Contrôle des Feux Rouge</title>";
   page += "<style>";
 
   // Style général de la page
